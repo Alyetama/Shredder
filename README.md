@@ -26,7 +26,7 @@ Shredder is not signed with an Apple Developer ID, so macOS may block it the fir
 3. Terminal fallback:
 
    ```bash
-   xattr -d com.apple.quarantine /Applications/Shredder.app
+   /usr/bin/xattr -d com.apple.quarantine /Applications/Shredder.app
    ```
 
 ## Build from source
