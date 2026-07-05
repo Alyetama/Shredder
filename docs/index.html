@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A native macOS utility that securely overwrites files and folders before removing them.">
+  <meta name="theme-color" content="#17171b">
+  <title>Shredder for macOS</title>
+  <style>
+    :root { color-scheme: dark; --red: #ef3d47; --ink: #f7f7f8; --muted: #b6b6bd; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; color: var(--ink); background: #111115; }
+    .hero { min-height: 100vh; display: grid; place-items: center; padding: 72px 24px; text-align: center; background: radial-gradient(circle at 80% 20%, #50161d 0, transparent 38%), linear-gradient(145deg, #18191e, #101013); }
+    .wrap { width: min(1100px, 100%); }
+    .eyebrow { color: #ff747c; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; }
+    h1 { margin: 12px 0 10px; font-size: clamp(3.5rem, 10vw, 7rem); letter-spacing: -.065em; line-height: .95; }
+    .tagline { max-width: 720px; margin: 0 auto 32px; color: var(--muted); font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.5; }
+    .download { display: inline-flex; align-items: center; gap: 10px; padding: 16px 25px; border-radius: 13px; color: white; background: var(--red); text-decoration: none; font-weight: 750; font-size: 1.08rem; box-shadow: 0 12px 35px #ef3d4740; transition: transform .16s, background .16s; }
+    .download:hover { transform: translateY(-2px); background: #ff4b55; }
+    .mockup { display: block; width: 100%; margin: 52px auto 0; border-radius: 22px; box-shadow: 0 32px 90px #0008; }
+    .instructions { padding: 90px 24px; background: #f5f5f7; color: #18181b; }
+    .card { width: min(760px, 100%); margin: auto; }
+    h2 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -.04em; margin: 0 0 18px; }
+    .lead { color: #62626a; font-size: 1.08rem; line-height: 1.65; }
+    ol { padding-left: 1.35rem; font-size: 1.05rem; line-height: 1.65; }
+    li { margin: 13px 0; }
+    code { display: block; overflow-x: auto; margin-top: 10px; padding: 14px 16px; border-radius: 10px; color: #f7f7f8; background: #202026; font-family: "SFMono-Regular", Consolas, monospace; }
+    footer { padding: 28px 24px; text-align: center; color: #85858d; background: #111115; }
+    footer a { color: #d2d2d6; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Private by design</div>
+        <h1>Shredder</h1>
+        <p class="tagline">A native macOS utility that securely overwrites files and folders before removing them.</p>
+        <a class="download" id="download" href="https://github.com/Alyetama/Shredder/releases/latest/download/Shredder.dmg">Download for macOS ↓</a>
+        <img class="mockup" src="mockup.png" alt="Shredder running in a macOS window">
+      </div>
+    </section>
+
+    <section class="instructions" id="how-to-open">
+      <div class="card">
+        <h2>How to open the app</h2>
+        <p class="lead">Shredder is not signed with an Apple Developer ID, so macOS may block it the first time you open it.</p>
+        <ol>
+          <li>Right-click (or Control-click) <strong>Shredder.app</strong>, choose <strong>Open</strong>, then click <strong>Open</strong>.</li>
+          <li>If that is blocked on newer macOS versions, open <strong>System Settings → Privacy &amp; Security</strong>, scroll down, and click <strong>Open Anyway</strong> for Shredder.</li>
+          <li>Terminal fallback:<code>xattr -dr com.apple.quarantine /Applications/Shredder.app</code></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+  <footer>MIT licensed · <a href="https://github.com/Alyetama/Shredder">View source on GitHub</a></footer>
+  <script>
+    document.getElementById('download').addEventListener('click', () => {
+      document.getElementById('how-to-open').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Release artifacts (attach to GitHub Releases; never commit)
+*.dmg
+*.app
+
+# Build output
+.build/
+build/
+dist/
+DerivedData/
+*.xcuserstate
+
+# macOS
+.DS_Store
